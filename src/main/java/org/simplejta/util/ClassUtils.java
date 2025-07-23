@@ -23,9 +23,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Properties;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+import org.apache.log4j.Logger;
 
 /**
  * @author Dibyendu Majumdar
@@ -33,7 +31,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class ClassUtils {
 
-	private static Logger log = LogManager.getLogger(ClassUtils.class);
+	private static Logger log = Logger.getLogger(ClassUtils.class);
 
 	/**
 	 * Get the ClassLoader to use. We always use the current Thread's

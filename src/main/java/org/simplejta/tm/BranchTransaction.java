@@ -19,20 +19,17 @@ package org.simplejta.tm;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.transaction.HeuristicCommitException;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
 import javax.transaction.xa.XAException;
 import javax.transaction.xa.XAResource;
 import javax.transaction.xa.Xid;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+import org.apache.log4j.Logger;
 import org.simplejta.util.Messages;
-
-import jakarta.transaction.HeuristicCommitException;
-import jakarta.transaction.HeuristicMixedException;
-import jakarta.transaction.HeuristicRollbackException;
-import jakarta.transaction.RollbackException;
-import jakarta.transaction.SystemException;
 
 /**
  * BranchTransaction handles XA Resource management for a single branch within a
@@ -56,7 +53,7 @@ import jakarta.transaction.SystemException;
  */
 public class BranchTransaction implements Constants {
 
-    private static Logger log = LogManager.getLogger(BranchTransaction.class);
+    private static Logger log = Logger.getLogger(BranchTransaction.class);
 
     /**
      * The Global Transaction to which this Branch belongs.

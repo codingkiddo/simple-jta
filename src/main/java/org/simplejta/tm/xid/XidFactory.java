@@ -16,12 +16,10 @@
  */
 package org.simplejta.tm.xid;
 
-
+import javax.transaction.SystemException;
 import javax.transaction.xa.Xid;
 
 import org.simplejta.tm.SimpleTransactionManager;
-
-import jakarta.transaction.SystemException;
 
 /**
  * XidFactory is responsible for creating Xids.

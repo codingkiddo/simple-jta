@@ -23,6 +23,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.sql.ConnectionPoolDataSource;
+import javax.transaction.SystemException;
 
 import org.simplejta.tm.GlobalTransaction;
 import org.simplejta.tm.log.jdbc.JDBCTransactionLogAdaptor;
@@ -31,8 +32,6 @@ import org.simplejta.util.Messages;
 import org.simplejta.util.PoolingDataSource;
 import org.simplejta.util.SqlUtil;
 import org.springframework.beans.factory.InitializingBean;
-
-import jakarta.transaction.SystemException;
 
 /**
  * <p>

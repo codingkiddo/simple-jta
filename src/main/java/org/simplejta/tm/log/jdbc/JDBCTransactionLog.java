@@ -22,6 +22,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
+import javax.transaction.SystemException;
 import javax.transaction.xa.Xid;
 
 import org.simplejta.tm.BranchTransaction;
@@ -33,8 +34,6 @@ import org.simplejta.tm.xid.XidFactory;
 import org.simplejta.util.Messages;
 import org.simplejta.util.SqlUtil;
 import org.springframework.beans.factory.DisposableBean;
-
-import jakarta.transaction.SystemException;
 
 
 /**

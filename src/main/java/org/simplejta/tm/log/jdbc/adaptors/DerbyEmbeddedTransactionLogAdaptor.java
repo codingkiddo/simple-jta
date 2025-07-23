@@ -24,6 +24,7 @@ import java.sql.Statement;
 import java.util.HashMap;
 
 import javax.sql.ConnectionPoolDataSource;
+import javax.transaction.SystemException;
 
 import org.simplejta.tm.GlobalTransaction;
 import org.simplejta.tm.log.jdbc.JDBCTransactionLogAdaptor;
@@ -31,8 +32,6 @@ import org.simplejta.util.Messages;
 import org.simplejta.util.PoolingDataSource;
 import org.simplejta.util.SqlUtil;
 import org.springframework.beans.factory.InitializingBean;
-
-import jakarta.transaction.SystemException;
 
 public class DerbyEmbeddedTransactionLogAdaptor implements
 		JDBCTransactionLogAdaptor, InitializingBean {

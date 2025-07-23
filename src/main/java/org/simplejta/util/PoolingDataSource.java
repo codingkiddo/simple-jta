@@ -19,7 +19,6 @@ package org.simplejta.util;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.SQLFeatureNotSupportedException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -30,8 +29,7 @@ import javax.sql.ConnectionPoolDataSource;
 import javax.sql.DataSource;
 import javax.sql.PooledConnection;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 /**
  * PoolingDataSource implements a simple Pooling Manager for a
@@ -48,7 +46,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class PoolingDataSource implements ConnectionEventListener, DataSource {
 
-	private static Logger log = LogManager.getLogger(PoolingDataSource.class);
+	private static Logger log = Logger.getLogger(PoolingDataSource.class);
 
 	private ConnectionPoolDataSource cpds = null;
 
@@ -241,24 +239,6 @@ public class PoolingDataSource implements ConnectionEventListener, DataSource {
 				i.remove();
 			}
 		}
-	}
-
-	@Override
-	public java.util.logging.Logger getParentLogger() throws SQLFeatureNotSupportedException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <T> T unwrap(Class<T> iface) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean isWrapperFor(Class<?> iface) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
 	}
 }
 
