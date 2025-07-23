@@ -25,7 +25,9 @@ import java.util.Map;
 
 import javax.sql.PooledConnection;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 /**
  * SqlUtil implements a few useful SQL helpers.
@@ -35,7 +37,7 @@ import org.apache.log4j.Logger;
  */
 public class SqlUtil {
 
-	private static Logger log = Logger.getLogger(SqlUtil.class);
+	private static Logger log = LogManager.getLogger(SqlUtil.class);
 			
 	public static void close(PooledConnection con) {
 		if (con == null)

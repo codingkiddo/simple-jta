@@ -19,22 +19,26 @@ package org.simplejta.tm;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import javax.transaction.HeuristicCommitException;
-import javax.transaction.HeuristicMixedException;
-import javax.transaction.HeuristicRollbackException;
-import javax.transaction.RollbackException;
-import javax.transaction.Status;
-import javax.transaction.Synchronization;
-import javax.transaction.SystemException;
-import javax.transaction.Transaction;
 import javax.transaction.xa.XAResource;
 import javax.transaction.xa.Xid;
 
-import org.apache.log4j.Logger;
 import org.simplejta.tm.log.TransactionLog;
 import org.simplejta.tm.xid.XidFactory;
 import org.simplejta.util.ExceptionUtil;
 import org.simplejta.util.Messages;
+
+import jakarta.transaction.HeuristicCommitException;
+import jakarta.transaction.HeuristicMixedException;
+import jakarta.transaction.HeuristicRollbackException;
+import jakarta.transaction.RollbackException;
+import jakarta.transaction.Status;
+import jakarta.transaction.Synchronization;
+import jakarta.transaction.SystemException;
+import jakarta.transaction.Transaction;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 /**
  * <p>
@@ -52,7 +56,7 @@ public class GlobalTransaction implements Status, Constants, Transaction {
      */
     private static final int MAX_BRANCHES = 20;
 
-    private static Logger log = Logger.getLogger(GlobalTransaction.class);
+    private static Logger log = LogManager.getLogger(GlobalTransaction.class);
 
     /**
      * Represents current <code>state</code> of the transaction

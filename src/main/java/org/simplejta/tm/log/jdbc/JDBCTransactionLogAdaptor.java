@@ -18,9 +18,9 @@ package org.simplejta.tm.log.jdbc;
 
 import java.sql.Connection;
 
-import javax.transaction.SystemException;
-
 import org.simplejta.tm.GlobalTransaction;
+
+import jakarta.transaction.SystemException;
 
 public interface JDBCTransactionLogAdaptor {
 

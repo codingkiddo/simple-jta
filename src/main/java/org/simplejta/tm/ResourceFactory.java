@@ -19,8 +19,9 @@ package org.simplejta.tm;
 import java.sql.SQLException;
 import java.util.Map;
 
-import javax.transaction.SystemException;
 import javax.transaction.xa.Xid;
+
+import jakarta.transaction.SystemException;
 
 /**
  * ResourceFactory implementations are responsible for creating new {@link Resource}

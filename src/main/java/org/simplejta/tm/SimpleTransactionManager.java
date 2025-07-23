@@ -21,20 +21,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Properties;
 
-import javax.transaction.HeuristicMixedException;
-import javax.transaction.HeuristicRollbackException;
-import javax.transaction.InvalidTransactionException;
-import javax.transaction.NotSupportedException;
-import javax.transaction.RollbackException;
-import javax.transaction.Status;
-import javax.transaction.SystemException;
-import javax.transaction.Transaction;
-import javax.transaction.TransactionManager;
 import javax.transaction.xa.XAException;
 import javax.transaction.xa.XAResource;
 import javax.transaction.xa.Xid;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.simplejta.tm.log.TransactionLog;
 import org.simplejta.tm.xid.SimpleXidImpl;
 import org.simplejta.util.Messages;
@@ -44,6 +36,16 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+
+import jakarta.transaction.HeuristicMixedException;
+import jakarta.transaction.HeuristicRollbackException;
+import jakarta.transaction.InvalidTransactionException;
+import jakarta.transaction.NotSupportedException;
+import jakarta.transaction.RollbackException;
+import jakarta.transaction.Status;
+import jakarta.transaction.SystemException;
+import jakarta.transaction.Transaction;
+import jakarta.transaction.TransactionManager;
 
 /**
  * SimpleTransactionManager implements a simple JTA compatible Transaction
@@ -65,7 +67,7 @@ public class SimpleTransactionManager implements TransactionManager,
 	/**
 	 * Log4J Logger for generating log messages.
 	 */
-	private static Logger log = Logger
+	private static Logger log = LogManager
 			.getLogger(SimpleTransactionManager.class);
 
 	/**

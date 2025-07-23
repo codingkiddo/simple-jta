@@ -18,11 +18,11 @@ package org.simplejta.tm.log;
 
 import java.util.LinkedList;
 
-import javax.transaction.SystemException;
-
 import org.simplejta.tm.BranchTransaction;
 import org.simplejta.tm.GlobalTransaction;
 import org.simplejta.tm.SimpleTransactionManager;
+
+import jakarta.transaction.SystemException;
 
 
 /**

@@ -18,11 +18,12 @@ package org.simplejta.tm.xid;
 
 import java.nio.ByteBuffer;
 
-import javax.transaction.SystemException;
 import javax.transaction.xa.Xid;
 
 import org.simplejta.tm.SimpleTransactionManager;
 import org.simplejta.util.Messages;
+
+import jakarta.transaction.SystemException;
 
 /**
  * <p>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="UserTransaction" class="org.simplejta.tm.ut.SimpleUserTransaction">
+		<constructor-arg>
+			<props>
+				<prop key="beanFactory">myapp</prop>
+				<prop key="transactionManager">myTM</prop>
+			</props>
+		</constructor-arg>
+	</bean>
+
+	<bean id="SpringTransactionManager" 
+		class="org.springframework.transaction.jta.JtaTransactionManager">
+		<property name="userTransaction"><ref local="UserTransaction"/></property>
+	</bean>
+	
+	<bean id="DataSource1" class="org.simplejta.tm.jdbc.SimpleJTADataSource">
+		<property name="beanFactory" value="myapp" />
+		<property name="transactionManager" value="myTM" />
+		<property name="connectionPool" value="TestDataSource1" />
+	</bean>
+
+	<bean id="DataSource2" class="org.simplejta.tm.jdbc.SimpleJTADataSource">
+		<property name="beanFactory" value="myapp" />
+		<property name="transactionManager" value="myTM" />
+		<property name="connectionPool" value="TestDataSource2" />
+	</bean>
+
+	<bean id="RawDataSource1" class="org.apache.derby.jdbc.EmbeddedDataSource">
+		<property name="databaseName" value="/derby/databases/tca"></property>
+		<property name="user" value="APP"></property>
+		<property name="password" value="APP"></property>
+	</bean>
+		
+	<bean id="RawDataSource2" class="org.apache.derby.jdbc.EmbeddedDataSource">
+		<property name="databaseName" value="/derby/databases/tca"></property>
+		<property name="user" value="APP"></property>
+		<property name="password" value="APP"></property>
+	</bean>
+
+	<bean id="ActiveMQ.QCF" class="org.simplejta.tm.jms.SimpleJTAJMSConnectionFactory">
+		<property name="beanFactory" value="myapp" />
+		<property name="transactionManager" value="myTM" />
+		<property name="connectionPool" value="JMSConnectionPool1" />
+	</bean>
+
+
+</beans>
