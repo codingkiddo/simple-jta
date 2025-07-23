@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+    <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"> 
+
+	<appender name="T" class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="DEBUG" />
+		<param name="File"
+			value="simplejta.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="500KB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+
+	<!-- Configure the log level for Struts -->
+	<logger name="org.simplejta">
+		<level value="debug" />
+		<appender-ref ref="T" />
+	</logger>
+
+	<root>
+		<appender-ref ref="T" />
+	</root>
+
+</log4j:configuration>
